@@ -13,6 +13,14 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   userData: any;
+
+  /**
+   * Class constructor
+   * @param afs
+   * @param afAuth
+   * @param router
+   * @param ngZone
+   */
   constructor(
     public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
@@ -31,6 +39,12 @@ export class AuthService {
     });
   }
 
+  /**
+   *
+   * @param email
+   * @param password
+   * @returns
+   */
   signIn(email: string, password: string) {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
@@ -47,6 +61,12 @@ export class AuthService {
       });
   }
 
+  /**
+   *
+   * @param email
+   * @param password
+   * @returns
+   */
   signUp(email: string, password: string) {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
@@ -59,6 +79,10 @@ export class AuthService {
       });
   }
 
+  /**
+   *
+   * @returns
+   */
   sendVerificationMail() {
     return this.afAuth.currentUser
       .then((u: any) => u.sendEmailVerification())
@@ -67,6 +91,11 @@ export class AuthService {
       });
   }
 
+  /**
+   *
+   * @param passwordResetEmail
+   * @returns
+   */
   forgotPassword(passwordResetEmail: string) {
     return this.afAuth
       .sendPasswordResetEmail(passwordResetEmail)
@@ -77,18 +106,30 @@ export class AuthService {
         window.alert(error);
       });
   }
-  // Returns true when user is looged in and email is verified
+
+  /**
+   *
+   */
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
     return user !== null && user.emailVerified !== false ? true : false;
   }
-  // Sign in with Google
+
+  /**
+   *
+   * @returns
+   */
   googleAuth() {
     return this.authLogin(new auth.GoogleAuthProvider()).then((res: any) => {
       this.router.navigate(['dashboard']);
     });
   }
-  // Auth logic to run auth providers
+
+  /**
+   *
+   * @param provider
+   * @returns
+   */
   authLogin(provider: any) {
     return this.afAuth
       .signInWithPopup(provider)
@@ -100,9 +141,12 @@ export class AuthService {
         window.alert(error);
       });
   }
-  /* Setting up user data when sign in with username/password,
-  sign up with username/password and sign in with social auth
-  provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
+
+  /**
+   *
+   * @param user
+   * @returns
+   */
   setUserData(user: any) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
@@ -118,7 +162,11 @@ export class AuthService {
       merge: true,
     });
   }
-  // Sign out
+
+  /**
+   *
+   * @returns
+   */
   signOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
