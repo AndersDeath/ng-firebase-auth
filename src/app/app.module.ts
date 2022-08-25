@@ -1,3 +1,4 @@
+import { AuthService } from './shared/services/auth.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -38,7 +39,7 @@ const FirebaseModules = [
     BrowserAnimationsModule,
     ...FirebaseModules
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
