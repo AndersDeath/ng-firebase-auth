@@ -39,11 +39,7 @@ export class SignInComponent {
   }
 
   sendFormData(form: UntypedFormGroup) {
-    this.formDataEmitter.emit({
-      email: form.value.email,
-      password: form.value.password,
-      remember: form.value.remember
-    });
+    this.authService.signIn(form.value.email, form.value.password);
   }
 
   loginByGoogle(event: any) {
