@@ -122,7 +122,7 @@ export class AuthService {
   googleAuth() {
     return this.authLogin(new auth.GoogleAuthProvider()).then((res: any) => {
       console.log(res);
-      // this.router.navigate(['dashboard']);
+      this.router.navigate(['dashboard']);
     });
   }
 
