@@ -1,5 +1,6 @@
 <div class="login-area">
   <mat-card class="login-card">
+    <h3>Sign in</h3>
     <span>
       <div class="form-layout">
         <form [formGroup]="loginForm" (ngSubmit)="sendFormData(loginForm)">
@@ -23,11 +24,10 @@
             </mat-error>
           </mat-form-field>
           <div  class="form-actions">
-            <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Submit</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Sign Up</button>
           </div>
           <div class="form-actions">
             <button mat-raised-button color="basic" (click)="loginByGoogle($event)">Login by Google</button>
-
           </div>
         </form>
       </div>
