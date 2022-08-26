@@ -28,7 +28,8 @@ export class SignInComponent {
   public loginForm: UntypedFormGroup;
   constructor(
     public fb: UntypedFormBuilder,
-    private router: Router
+    private router: Router,
+    public authService: AuthService
     ) {
       this.loginForm = this.fb.group({
         email: [null, [Validators.required, Validators.email]],
@@ -43,14 +44,11 @@ export class SignInComponent {
       password: form.value.password,
       remember: form.value.remember
     });
-    console.log(form.value.remember);
-    if(form.value.remember === true) {
-      localStorage.setItem('saved_email', form.value.email);
-    } else {
-      localStorage.removeItem('saved_email');
-    }
-    // this.router.navigate(['dashboard']);
-    // localStorage.setItem('isLogin', 'true');
+  }
+
+  loginByGoogle(event: any) {
+    console.log('Login By Google');
+    this.authService.googleAuth();
   }
 
 }

@@ -26,7 +26,7 @@
             <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Submit</button>
           </div>
           <div class="form-actions">
-            <button mat-raised-button color="basic">Login by Google</button>
+            <button mat-raised-button color="basic" (click)="loginByGoogle($event)">Login by Google</button>
 
           </div>
         </form>

@@ -121,7 +121,8 @@ export class AuthService {
    */
   googleAuth() {
     return this.authLogin(new auth.GoogleAuthProvider()).then((res: any) => {
-      this.router.navigate(['dashboard']);
+      console.log(res);
+      // this.router.navigate(['dashboard']);
     });
   }
 
