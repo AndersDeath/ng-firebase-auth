@@ -43,7 +43,6 @@ export class SignInComponent {
   }
 
   loginByGoogle(event: any) {
-    console.log('Login By Google');
     this.authService.googleAuth();
   }
 
