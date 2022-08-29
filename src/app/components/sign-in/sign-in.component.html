@@ -26,10 +26,10 @@
           <div  class="form-actions">
             <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Sign Up</button>
           </div>
-          <div class="form-actions">
-            <button mat-raised-button color="basic" (click)="loginByGoogle($event)">Login by Google</button>
-          </div>
         </form>
+        <div class="form-actions">
+          <button mat-raised-button color="basic" (click)="loginByGoogle($event)">Login by Google</button>
+        </div>
       </div>
       <button mat-stroked-button routerLink="/forgot-password" color="basic">Forgot password?</button>
       <button mat-stroked-button routerLink="/register-user" color="basic">Don't have an account?</button>
