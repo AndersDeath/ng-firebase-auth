@@ -11,12 +11,12 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
 
 const routes: Routes = [
   { path: '', component: EntryPageComponent },
-  { path: 'dashboard', component: DashboardPageComponent },
-  { path: 'sign-in', component: SignInComponent },
-  { path: 'register-user', component: SignUpComponent },
+  { path: 'dashboard', component: DashboardPageComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: SignInComponent },
+  { path: 'registration', component: SignUpComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'verify-email-address', component: VerifyEmailComponent },
-  { path: '**', redirectTo: '/dashboard', pathMatch: 'full' }
+  { path: 'verify-email', component: VerifyEmailComponent },
+  { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
