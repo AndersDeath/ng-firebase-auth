@@ -27,6 +27,13 @@ export class AuthService {
     public router: Router,
     public ngZone: NgZone
   ) {
+    if(!this.userData) {
+      try {
+        this.userData =  JSON.parse(localStorage.getItem('user')!);
+      } catch(e) {
+      }
+    }
+
     this.afAuth.authState.subscribe((user) => {
       if (user) {
         this.userData = user;
