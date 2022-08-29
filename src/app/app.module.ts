@@ -18,6 +18,8 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EntryPageComponent } from './pages/entry-page/entry-page.component';
+import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 
 const FirebaseModules = [
   AngularFireModule.initializeApp(environment.firebase),
@@ -33,7 +35,9 @@ const FirebaseModules = [
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    EntryPageComponent,
+    DashboardPageComponent
   ],
   imports: [
     BrowserModule,

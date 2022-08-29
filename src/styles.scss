@@ -61,7 +61,7 @@ html, body { height: 100%; }
 html {
   background-color: #009688;
 }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #efefef;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;   background-color: #333  ;}
 
 .mat-drawer-inner-container {
   max-width: 200px;
@@ -121,3 +121,42 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
   .space {
     flex: 100%;
   }
+
+
+
+.login-card {
+  max-width: 350px;
+  min-width: 100px;
+  button {
+    width: 100%;
+  }
+}
+
+.login-area {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // background-image: url('../../../assets/bg.png');
+  background-color: #333;
+  background-position: center;
+}
+
+.form-layout {
+  display: flex;
+  max-width: 500px;
+  flex-direction: column;
+  padding: 10px;
+  .form-field {
+    width: 100%;
+  }
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+    .fill {
+      width: 100%;
+    }
+  }
+}
