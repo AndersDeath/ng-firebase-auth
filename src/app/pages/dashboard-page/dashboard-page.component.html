@@ -6,5 +6,19 @@
   </button>
 </mat-toolbar>
 <mat-card class="entry-card">
-asd
+  <mat-card-header>
+    <img mat-card-avatar class="header-image" src={{userData.photoURL}} />
+    <mat-card-title>{{userData.displayName}}</mat-card-title>
+    <mat-card-subtitle>{{userData.email}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+     uid: <strong>{{userData.uid}}</strong> <br/>
+     emailVerified: <strong>{{userData.emailVerified}}</strong> <br/>
+     isAnonymous: <strong>{{userData.isAnonymous}}</strong> <br/>
+     createdAt: <strong>{{userData.createdAt}}</strong> <br/>
+     lastLoginAt: <strong>{{userData.lastLoginAt}}</strong> <br/>
+    </p>
+
+  </mat-card-content>
 </mat-card>
