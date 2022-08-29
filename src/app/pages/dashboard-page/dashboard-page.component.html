@@ -16,8 +16,8 @@
      uid: <strong>{{userData.uid}}</strong> <br/>
      emailVerified: <strong>{{userData.emailVerified}}</strong> <br/>
      isAnonymous: <strong>{{userData.isAnonymous}}</strong> <br/>
-     createdAt: <strong>{{userData.createdAt}}</strong> <br/>
-     lastLoginAt: <strong>{{userData.lastLoginAt}}</strong> <br/>
+     createdAt: <strong>{{userData.createdAt  | date:"HH:mm - dd.MM.yy" }}</strong> <br/>
+     lastLoginAt: <strong>{{userData.lastLoginAt  | date:"HH:mm - dd.MM.yy" }}</strong> <br/>
     </p>
 
   </mat-card-content>

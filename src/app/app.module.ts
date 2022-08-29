@@ -20,6 +20,7 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EntryPageComponent } from './pages/entry-page/entry-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { DatePipe } from '@angular/common';
 
 const FirebaseModules = [
   AngularFireModule.initializeApp(environment.firebase),
@@ -48,7 +49,7 @@ const FirebaseModules = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
