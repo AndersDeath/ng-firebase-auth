@@ -123,7 +123,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;   backgroun
   }
 
 
-
 .login-card {
   max-width: 350px;
   min-width: 100px;
@@ -131,6 +130,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;   backgroun
     width: 100%;
   }
 }
+
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+
 
 .login-area {
   height: 100%;
