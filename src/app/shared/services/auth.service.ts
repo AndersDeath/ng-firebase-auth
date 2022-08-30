@@ -128,7 +128,6 @@ export class AuthService {
    */
   googleAuth() {
     return this.authLogin(new auth.GoogleAuthProvider()).then((res: any) => {
-      console.log(res);
       this.router.navigate(['dashboard']);
     });
   }
@@ -142,8 +141,8 @@ export class AuthService {
     return this.afAuth
       .signInWithPopup(provider)
       .then((result) => {
-        this.router.navigate(['dashboard']);
         this.setUserData(result.user);
+        this.router.navigate(['dashboard']);
       })
       .catch((error) => {
         window.alert(error);
@@ -166,6 +165,7 @@ export class AuthService {
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
     };
+    // console.log(userData);
     return userRef.set(userData, {
       merge: true,
     });

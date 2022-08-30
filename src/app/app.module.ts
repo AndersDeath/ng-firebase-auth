@@ -49,7 +49,10 @@ const FirebaseModules = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService, DatePipe],
+  providers: [
+    AuthService,
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
