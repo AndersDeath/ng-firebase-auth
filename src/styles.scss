@@ -166,3 +166,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;   backgroun
     }
   }
 }
+
+
+.entry-card {
+  margin: 40px auto;
+  max-width: 350px;
+  min-width: 100px;
+  button {
+    width: 100%;
+  }
+}
+
+.header-image {
+  img {
+    background-size: cover;
+  }
+}
