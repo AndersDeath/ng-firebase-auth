@@ -6,8 +6,12 @@
     "config": "node ./scripts/set-env.js",
     "start": "npm run config -- --environment=dev && ng serve",
     "build": "npm run config -- --environment=prod && ng build",
+    "build:production": "npm run config -- --environment=prod && ng build --configuration production",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "gh-prepare": "npm run config -- --environment=prod && ng build --configuration production --base-href https://andersdeath.github.io/ng-firebase-auth/",
+    "gh-deploy": "ngh --dir=dist/ng-firebase-auth/",
+    "gh": "npm run gh-prepare && npm run gh-deploy"
   },
   "private": true,
   "dependencies": {
@@ -32,6 +36,7 @@
     "@angular/cli": "~14.1.3",
     "@angular/compiler-cli": "^14.1.0",
     "@types/jasmine": "~4.0.0",
+    "angular-cli-ghpages": "^1.0.3",
     "dotenv": "^16.0.1",
     "jasmine-core": "~4.2.0",
     "karma": "~6.4.0",
