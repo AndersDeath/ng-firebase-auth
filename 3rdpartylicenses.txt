@@ -152,6 +152,9 @@ Apache-2.0
 @firebase/webchannel-wrapper
 Apache-2.0
 
+@ngneat/until-destroy
+MIT
+
 firebase/analytics
 
 firebase/app
