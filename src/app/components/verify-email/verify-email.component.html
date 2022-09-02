@@ -1,8 +1,9 @@
-<div class="main-area">
-  <mat-card class="login-card">
-    <h3>Verification email</h3>
-    <p>We have sent a confirmation email to <strong>{{email}}</strong>.</p>
-    <p>Please check your email and click on the link to verfiy your email address.</p>
-    <button mat-raised-button color="basic" (click)="sendVerification()">Resend verification email</button>
-  </mat-card>
-</div>
+<mat-toolbar color="primary">
+  <span>ng-firebase-auth</span>
+</mat-toolbar>
+<mat-card class="entry-card">
+  <h3>Verification email</h3>
+  <p>We have sent a confirmation email to <strong>{{email}}</strong>.</p>
+  <p>Please check your email and click on the link to verfiy your email address.</p>
+  <button mat-raised-button color="basic" (click)="sendVerification()">Resend verification email</button>
+</mat-card>
