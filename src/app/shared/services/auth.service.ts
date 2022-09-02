@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Injectable, NgZone } from '@angular/core';
 import { User } from '../services/user';
 import * as auth from 'firebase/auth';
@@ -7,6 +8,7 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import firebase from 'firebase/compat/app';
 
 @Injectable({
   providedIn: 'root'
@@ -22,10 +24,9 @@ export class AuthService {
    * @param ngZone
    */
   constructor(
-    public afs: AngularFirestore,
-    public afAuth: AngularFireAuth,
-    public router: Router,
-    public ngZone: NgZone
+    private afs: AngularFirestore,
+    private afAuth: AngularFireAuth,
+    private router: Router
   ) {
     if(!this.userData) {
       try {
@@ -44,6 +45,10 @@ export class AuthService {
         JSON.parse(localStorage.getItem('user')!);
       }
     });
+  }
+
+  authState(): Observable<firebase.User | null> {
+    return this.afAuth.authState;
   }
 
   /**

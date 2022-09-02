@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../shared/services/auth.service';
 import { Router } from '@angular/router';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
+@UntilDestroy()
 @Component({
   selector: 'app-entry-page',
   templateUrl: './entry-page.component.html',
@@ -18,6 +20,11 @@ export class EntryPageComponent implements OnInit {
     if(this.authService.isLoggedIn) {
       this.router.navigate(['/dashboard'])
     }
+    this.authService.authState().pipe(untilDestroyed(this)).subscribe((e: any) => {
+      if(e) {
+        this.router.navigate(['/dashboard'])
+      }
+    })
   }
 
 }
