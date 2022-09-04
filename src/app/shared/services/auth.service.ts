@@ -5,6 +5,7 @@ import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
   AngularFirestore,
+  AngularFirestoreCollection,
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
@@ -186,6 +187,13 @@ export class AuthService {
     return userRef.set(data, {
       merge: true,
     });
+  }
+
+  getAllMessages() {
+    const userRef: AngularFirestoreCollection<any> = this.afs.collection(
+      `notes`
+    );
+    return userRef.get();
   }
 
   /**

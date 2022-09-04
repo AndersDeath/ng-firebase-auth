@@ -16,7 +16,9 @@ export class DashboardPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.userData = this.authService.userData;
-    this.authService.writeMessage(this.userData, 'test text');
+    this.authService.getAllMessages().forEach((w) => {
+      console.log(w.docs)
+    });
   }
 
   logout() {
