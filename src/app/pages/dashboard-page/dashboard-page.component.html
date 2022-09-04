@@ -7,9 +7,10 @@
 </mat-toolbar>
 <mat-card class="entry-card">
   <mat-card-header>
-    <img mat-card-avatar class="header-image" src={{userData.photoURL}} />
-    <mat-card-title>{{userData.displayName}}</mat-card-title>
-    <mat-card-subtitle>{{userData.email}}</mat-card-subtitle>
+    <img mat-card-avatar class="header-image" *ngIf="userData.photoUrl" src={{userData.photoURL}} />
+    <mat-card-title *ngIf="!userData.displayName">{{userData.email}}</mat-card-title>
+    <mat-card-title *ngIf="userData.displayName">{{userData.displayName}}</mat-card-title>
+    <mat-card-subtitle *ngIf="userData.displayName">{{userData.email}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <p>
@@ -18,6 +19,7 @@
      isAnonymous: <strong>{{userData.isAnonymous}}</strong> <br/>
      createdAt: <strong>{{userData.createdAt  | date:"HH:mm - dd.MM.yy" }}</strong> <br/>
      lastLoginAt: <strong>{{userData.lastLoginAt  | date:"HH:mm - dd.MM.yy" }}</strong> <br/>
+     provider: <strong>{{userData.providerData[0].providerId }}</strong> <br/>
     </p>
 
   </mat-card-content>

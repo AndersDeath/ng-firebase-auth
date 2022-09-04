@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { AuthService } from '../../shared/services/auth.service';
 
+@UntilDestroy()
 @Component({
   selector: 'app-dashboard-page',
   templateUrl: './dashboard-page.component.html',
@@ -13,7 +15,7 @@ export class DashboardPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.userData = this.authService.userData
+    this.userData = this.authService.userData;
     console.log(this.userData);
   }
 
