@@ -170,7 +170,7 @@ export class AuthService {
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
     };
-    // console.log(userData);
+    console.log(userData);
     return userRef.set(userData, {
       merge: true,
     });
