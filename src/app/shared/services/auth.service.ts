@@ -9,7 +9,7 @@ import {
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app';
-
+import * as uuidv4 from 'uuid';
 @Injectable({
   providedIn: 'root'
 })
@@ -171,6 +171,19 @@ export class AuthService {
       emailVerified: user.emailVerified,
     };
     return userRef.set(userData, {
+      merge: true,
+    });
+  }
+
+  writeMessage(user: any ='', text: any = '') {
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(
+      `notes/${uuidv4.v4()}`
+    );
+    const data: any = {
+      displayName: user.displayName || '',
+      message: text,
+    };
+    return userRef.set(data, {
       merge: true,
     });
   }
