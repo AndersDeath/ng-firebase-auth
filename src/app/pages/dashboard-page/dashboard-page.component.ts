@@ -16,7 +16,6 @@ export class DashboardPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.userData = this.authService.userData;
-    console.log(this.userData);
   }
 
   logout() {

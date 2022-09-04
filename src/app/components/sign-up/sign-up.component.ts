@@ -42,8 +42,6 @@ export class SignUpComponent {
   }
 
   loginByGoogle(event: any) {
-    this.authService.googleAuth().then((e) => {
-      console.log('sndjsndjsn')
-    });
+    this.authService.googleAuth();
   }
 }
