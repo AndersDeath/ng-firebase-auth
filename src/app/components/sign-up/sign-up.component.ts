@@ -34,7 +34,7 @@ export class SignUpComponent {
         email: [null, [Validators.required, Validators.email]],
         password: [null, [Validators.required]],
         remember: [false, []],
-      })
+      });
   }
 
   sendFormData(form: UntypedFormGroup) {

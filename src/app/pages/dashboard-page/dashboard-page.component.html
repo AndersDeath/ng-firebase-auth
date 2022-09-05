@@ -14,13 +14,28 @@
   </mat-card-header>
   <mat-card-content>
     <p>
-     uid: <strong>{{userData.uid}}</strong> <br/>
-     emailVerified: <strong>{{userData.emailVerified}}</strong> <br/>
-     isAnonymous: <strong>{{userData.isAnonymous}}</strong> <br/>
-     createdAt: <strong>{{userData.createdAt  | date:"HH:mm - dd.MM.yy" }}</strong> <br/>
-     lastLoginAt: <strong>{{userData.lastLoginAt  | date:"HH:mm - dd.MM.yy" }}</strong> <br/>
-     provider: <strong>{{userData.providerData[0].providerId }}</strong> <br/>
+      uid: <strong>{{userData.uid}}</strong> <br />
+      emailVerified: <strong>{{userData.emailVerified}}</strong> <br />
+      isAnonymous: <strong>{{userData.isAnonymous}}</strong> <br />
+      createdAt: <strong>{{userData.createdAt | date:"HH:mm - dd.MM.yy" }}</strong> <br />
+      lastLoginAt: <strong>{{userData.lastLoginAt | date:"HH:mm - dd.MM.yy" }}</strong> <br />
+      provider: <strong>{{userData.providerData[0].providerId }}</strong> <br />
     </p>
-
   </mat-card-content>
+
+</mat-card>
+<mat-card class="entry-card">
+  <form class="form-layout" [formGroup]="form" (ngSubmit)="sendFormData(form)">
+    <mat-form-field class="form-field" appearance="fill">
+      <mat-label>Message</mat-label>
+      <textarea cdkTextareaAutosize class="textarea" formControlName="message" matInput></textarea>
+    </mat-form-field>
+    <div class="form-actions">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Send</button>
+    </div>
+  </form>
+</mat-card>
+<mat-card class="entry-card" *ngFor="let message of messages">
+  <b>{{message.displayName || 'Anonymous'}} :</b> <br/>
+  {{message.message}}
 </mat-card>

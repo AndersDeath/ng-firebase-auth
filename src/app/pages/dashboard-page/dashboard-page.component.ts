@@ -1,3 +1,4 @@
+import { UntypedFormBuilder, Validators, UntypedFormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { AuthService } from '../../shared/services/auth.service';
@@ -10,12 +11,29 @@ import { AuthService } from '../../shared/services/auth.service';
 })
 export class DashboardPageComponent implements OnInit {
   public userData: any;
+  messages: any[] = [];
+  public form: UntypedFormGroup;
   constructor(
-    private authService: AuthService
-  ) { }
+    private authService: AuthService,
+    public fb: UntypedFormBuilder
+  ) {
+    this.form = this.fb.group({
+      message: [null, []],
+    });
+  }
 
   ngOnInit(): void {
     this.userData = this.authService.userData;
+    this.authService.getAllMessages().pipe(untilDestroyed(this)).subscribe((w) => {
+      w.forEach((e) => {
+        this.messages.push(e.data());
+      });
+    });
+  }
+
+  sendFormData(form: any) {
+    this.authService.writeMessage(this.userData, form.value.message);
+    this.form.setValue({message: ''})
   }
 
   logout() {
